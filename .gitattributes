@@ -1,0 +1,19 @@
+# テキストファイルは自動でLFに統一（コミット時に変換）
+* text=auto
+
+# C#, shader, Unity ファイルは LF を使う
+*.cs text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.compute text eol=lf
+*.hlsl text eol=lf
+
+# バイナリファイルは変換しない
+*.png binary
+*.jpg binary
+*.fbx binary
+*.unity binary
+*.prefab binary
+*.mat binary
+*.mp3 binary
+*.ogg binary
