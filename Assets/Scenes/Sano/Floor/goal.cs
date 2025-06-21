@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class goal : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class goal : MonoBehaviour
             Debug.Log("ゴール！");
             // クリア処理（シーン遷移やUI表示など）を書く
             // 例：SceneManager.LoadScene("NextLevel");
+            SceneManager.LoadScene("ResultScene");
         }
     }
 }
