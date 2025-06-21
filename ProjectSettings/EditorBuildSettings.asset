@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Kitera/TitleScene.unity
+    guid: cc74e705c0a4d4c4d92740f4ca086757
+  - enabled: 1
+    path: Assets/Scenes/Kitera/TransitionScene.unity
+    guid: fe7123aa21961ab4d9b85a2cd873a500
+  - enabled: 1
+    path: Assets/Scenes/Kitera/Stage1.unity
+    guid: fdde32b5b2223de4dab7533fe7b16e83
+  - enabled: 1
+    path: Assets/Scenes/Kitera/ResultScene.unity
+    guid: 3a9958c4a872f2c4583bd0f12a3ebedc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
