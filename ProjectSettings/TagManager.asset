@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Ground
   - Goal
+  - NumberObject
+  - Oparator
   layers:
   - Default
   - TransparentFX
