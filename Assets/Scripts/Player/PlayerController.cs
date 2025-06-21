@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider;
     private RectTransform rectTransform;
     private Rigidbody2D rigidbody2D;
+
+    [SerializeField]
+    private float playerSpeed = 2;
+    [SerializeField]
+    private float jumpForce = 2;
     
     int jumpCount = 0;
     void Start()
@@ -19,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody2D.linearVelocity = new Vector2(2f, rigidbody2D.linearVelocity.y);
+        rigidbody2D.linearVelocity = new Vector2(playerSpeed, rigidbody2D.linearVelocity.y);
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
@@ -28,10 +33,10 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (jumpCount <= 2)
+        if (jumpCount <= 1 && rigidbody2D.linearVelocity.y < 0.01)
         {
             jumpCount++;
-            rigidbody2D.AddForce(new Vector2(0f, 2.5f), ForceMode2D.Impulse);
+            rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
         return;
     }
