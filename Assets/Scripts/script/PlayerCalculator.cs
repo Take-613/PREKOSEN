@@ -336,7 +336,7 @@ public class PlayerCalculator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Goal"))
+        if(collision.CompareTag("Goal") || collision.CompareTag("Drop"))
         {
             Debug.Log("ゴールに到達しました！現在の値: " + currentValue);
             GameDataManager.Instance.SetPlayerScore((int)currentValue); // スコアを設定
