@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed = 2;
     [SerializeField]
     private float jumpForce = 2;
+
+    private float positionSub = 0;
+
+    [SerializeField] private GameObject defaultPosition;
     
     int jumpCount = 0;
     void Start()
@@ -20,11 +24,13 @@ public class PlayerController : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         boxCollider = GetComponent<BoxCollider2D>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        //defaultPosition = GameObject.Find("PlayerDefaultPosition");
     }
 
     void FixedUpdate()
     {
-        rigidbody2D.linearVelocity = new Vector2(playerSpeed, rigidbody2D.linearVelocity.y);
+        positionSub = defaultPosition.transform.position.x - transform.position.x;
+        rigidbody2D.linearVelocity = new Vector2(playerSpeed+positionSub*2, rigidbody2D.linearVelocity.y);
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
