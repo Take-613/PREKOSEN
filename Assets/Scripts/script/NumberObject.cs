@@ -5,7 +5,7 @@ using TMPro;
 public class NumberObject : MonoBehaviour
 {
     [Header("数値設定")]
-    [SerializeField] private float numberValue;
+    [SerializeField] private int numberValue;
     
     [Header("視覚的表示")]
     [SerializeField] private TextMeshPro textDisplay;
@@ -50,7 +50,7 @@ public class NumberObject : MonoBehaviour
         return numberValue;
     }
     
-    public void SetValue(float value)
+    public void SetValue(int value)
     {
         numberValue = value;
         UpdateDisplay();

@@ -10,6 +10,7 @@ TagManager:
   - NumberObject
   - Oparator
   - Drop
+  - FireWall
   layers:
   - Default
   - TransparentFX
