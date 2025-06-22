@@ -11304,12 +11304,36 @@ PrefabInstance:
       propertyPath: m_text
       value: '2
 
+
+
+
+
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293815829048318679, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293815829048318679, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293815829048318679, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293815829048318679, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9055192318296870572, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1965601484125563140}
+    - target: {fileID: 9055192318296870572, guid: 4c6490bfa6a819946af9721bd388eb57, type: 3}
+      propertyPath: playerValueDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

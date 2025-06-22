@@ -49,6 +49,6 @@ MonoBehaviour:
   spawnArea: {fileID: 0}
   spawnAreaSizeMin: {x: -5, y: -2, z: 0}
   spawnAreaSizeMax: {x: 415, y: 3, z: 0}
-  generateNumberCount: 30
-  generateOperateCount: 20
+  generateNumberCount: 20
+  generateOperateCount: 10
   spawnedObjects: []

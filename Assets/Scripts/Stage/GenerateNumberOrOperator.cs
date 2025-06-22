@@ -19,14 +19,14 @@ public class GenerateNumberOrOperator : MonoBehaviour
     {
         SpawnRandomObjects();
     }
-public void SpawnRandomObjects()
+    public void SpawnRandomObjects()
     {
         ClearSpawnedObjects();
         
         // 演算子を生成
         for (int i = 0; i < generateOperateCount; i++)
         {
-            SpawnOperator((OperatorType)i);
+            SpawnOperator((OperatorType)(i%4));
         }
         
         // 数値オブジェクトを生成（1-20の範囲）
@@ -84,9 +84,9 @@ public void SpawnRandomObjects()
     {
         Vector3 basePosition = spawnArea != null ? spawnArea.position : Vector3.zero;
         
-        float x = Random.Range(-spawnAreaSizeMin.x, spawnAreaSizeMax.x);
-        float y = Random.Range(-spawnAreaSizeMin.y-1, spawnAreaSizeMax.y);
-        float z = Random.Range(-spawnAreaSizeMin.z, spawnAreaSizeMax.z);
+        float x = Random.Range(spawnAreaSizeMin.x, spawnAreaSizeMax.x);
+        float y = Random.Range(spawnAreaSizeMin.y, spawnAreaSizeMax.y);
+        float z = Random.Range(spawnAreaSizeMin.z, spawnAreaSizeMax.z);
         
         return basePosition + new Vector3(x, (int)y, z);
         

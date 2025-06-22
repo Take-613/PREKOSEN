@@ -284,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 9
   jumpForce: 13
+  textMesh: {fileID: 5293815829048318679}
   defaultPosition: {fileID: 0}
 --- !u!114 &9055192318296870572
 MonoBehaviour:
@@ -312,3 +313,4 @@ MonoBehaviour:
   maxScale: 3
   scaleMultiplier: 0.1
   showDebugInfo: 1
+  playerController: {fileID: 0}

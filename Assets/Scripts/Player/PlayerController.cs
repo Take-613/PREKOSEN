@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float playerSpeed = 2;
     [SerializeField]
     private float jumpForce = 2;
+    
+    [SerializeField] private TextMeshPro textMesh;
 
     private float positionSub = 0;
 
@@ -56,9 +60,10 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void UpdateFontSize()
+    public void UpdateFontSize(string newText)
     {
-        Vector2 size = rectTransform.sizeDelta;
-        boxCollider.size = new Vector2(size.x, size.y);
+        textMesh.text = newText;
+        boxCollider.size = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y);
+        Debug.Log("サイズ変更したよ");
     }
 }

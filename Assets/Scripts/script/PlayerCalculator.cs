@@ -156,7 +156,7 @@ public class PlayerCalculator : MonoBehaviour
         
         UpdateUI();
         UpdatePlayerAppearance(); // 見た目も更新
-        playerController.UpdateFontSize();
+        playerController.UpdateFontSize(currentValue.ToString());
     }
     
     // UIを更新
