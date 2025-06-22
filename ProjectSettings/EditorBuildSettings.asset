@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kitera/ResultScene.unity
     guid: 3a9958c4a872f2c4583bd0f12a3ebedc
+  - enabled: 1
+    path: Assets/Scenes/Imasaki/Imasaki.unity
+    guid: c10278317cb4be84aaa56c652fe1d516
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
