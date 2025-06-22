@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     void HandleMovement()
     {
         // 現在の速度を取得
-        Vector2 currentVelocity = rb2D.velocity;
+        Vector2 currentVelocity = rb2D.linearVelocity;
         
         // 移動速度の計算
         float targetSpeed = horizontalInput * moveSpeed;
@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumpBufferTimer > 0 && (isGrounded || lastGroundedTime > 0))
         {
             // ジャンプ実行
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
             
             // タイマーリセット
             jumpBufferTimer = 0;
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
     void ShowDebugInfo()
     {
         Debug.Log($"地面判定: {isGrounded}");
-        Debug.Log($"速度: {rb2D.velocity}");
+        Debug.Log($"速度: {rb2D.linearVelocity}");
         Debug.Log($"水平入力: {horizontalInput}");
         Debug.Log($"ジャンプバッファー: {jumpBufferTimer}");
         Debug.Log($"コヨーテタイム: {lastGroundedTime}");
@@ -183,7 +183,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded || lastGroundedTime > 0)
         {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpForce);
+            rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
             lastGroundedTime = 0;
         }
     }
@@ -191,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
     // 速度のリセット
     public void ResetVelocity()
     {
-        rb2D.velocity = Vector2.zero;
+        rb2D.linearVelocity = Vector2.zero;
     }
     
     // 移動速度の設定
