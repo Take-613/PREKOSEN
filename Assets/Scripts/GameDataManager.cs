@@ -9,6 +9,8 @@ public class GameDataManager : MonoBehaviour
     public string SelectedStageSceneName { get; private set; }
     public int SelectedStageClearValue { get; private set; } // ★★★ここをint型に変更★★★
     public int PlayerScore { get; private set; } // プレイヤーのスコアを追加
+    
+    public bool goalflag { get; private set; } //ゴールしたかどうか
 
     private void Awake()
     {
@@ -48,4 +50,10 @@ public class GameDataManager : MonoBehaviour
         SelectedStageClearValue = 0; // 数値型なので0でリセット
         Debug.Log("GameDataManager: データがリセットされました。");
     }
+
+    public void SetGoalFlag(bool flag)
+    {
+        goalflag = flag;
+    }
+    
 }
