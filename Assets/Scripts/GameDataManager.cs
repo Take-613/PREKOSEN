@@ -8,6 +8,7 @@ public class GameDataManager : MonoBehaviour
     public string SelectedStageName { get; private set; }
     public string SelectedStageSceneName { get; private set; }
     public int SelectedStageClearValue { get; private set; } // ★★★ここをint型に変更★★★
+    public int PlayerScore { get; private set; } // プレイヤーのスコアを追加
 
     private void Awake()
     {
@@ -31,6 +32,12 @@ public class GameDataManager : MonoBehaviour
         SelectedStageSceneName = sceneName;
         SelectedStageClearValue = clearValue; // 数値型のクリア条件を設定
         Debug.Log($"GameDataManager: ステージが選択されました: {SelectedStageName} (シーン: {SelectedStageSceneName}), 目標値: {SelectedStageClearValue}");
+    }
+
+    public void SetPlayerScore(int score)
+    {
+        PlayerScore = score;
+        Debug.Log($"GameDataManager: プレイヤーのスコアが設定されました: {PlayerScore}");
     }
 
     // データリセット時も数値型をリセット
