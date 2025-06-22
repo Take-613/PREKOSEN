@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // TextMeshProを追加
+using TMPro;
+using UnityEngine.SceneManagement; // TextMeshProを追加
 
 // プレイヤーの計算機能を管理するクラス
 public class PlayerCalculator : MonoBehaviour
 {
     [Header("計算設定")]
-    [SerializeField] private float currentValue = 2;
+    [SerializeField] public float currentValue = 2;
     [SerializeField] private OperatorType? currentOperator = null;
     
     [Header("UI表示")]
@@ -312,15 +313,19 @@ public class PlayerCalculator : MonoBehaviour
             textObject.transform.SetParent(transform);
             textObject.transform.localPosition = new Vector3(0, 2f, 0); // プレイヤーの上に配置
             textObject.transform.localRotation = Quaternion.identity;
+            textObject.transform.localRotation = Quaternion.Euler(0, 180, 0); // カメラの方を向くように回転
             textObject.transform.localScale = Vector3.one;
-            
+
             // TextMeshProコンポーネントを追加
             playerValueDisplay = textObject.AddComponent<TextMeshPro>();
             playerValueDisplay.text = currentValue.ToString("F1");
             playerValueDisplay.fontSize = 4;
             playerValueDisplay.color = Color.white;
             playerValueDisplay.alignment = TextAlignmentOptions.Center;
-            
+
+            // Billboardコンポーネントを追加して、回転を不要にする
+            textObject.AddComponent<Billboard>();
+
             Debug.Log("プレイヤー数値表示を作成しました");
         }
         else
@@ -331,6 +336,14 @@ public class PlayerCalculator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.CompareTag("Goal"))
+        {
+            Debug.Log("ゴールに到達しました！現在の値: " + currentValue);
+            GameDataManager.Instance.SetPlayerScore((int)currentValue); // スコアを設定
+            SceneManager.LoadScene("ResultScene"); // 結果シーンに遷移
+            return;
+        }
+
         // 親オブジェクトを取得
         Transform parentTransform = collision.transform.parent;
         if (parentTransform == null)
