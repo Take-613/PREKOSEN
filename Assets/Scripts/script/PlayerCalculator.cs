@@ -328,4 +328,40 @@ public class PlayerCalculator : MonoBehaviour
             Debug.Log("プレイヤー数値表示は既に存在します");
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 親オブジェクトを取得
+        Transform parentTransform = collision.transform.parent;
+        if (parentTransform == null)
+        {
+            // 親がない場合は何もしない
+            return;
+        }
+
+        GameObject parentObject = parentTransform.gameObject;
+
+        // 親オブジェクトのタグを確認
+        if (parentObject.CompareTag("NumberObject"))
+        {
+            NumberObject numberObject = parentObject.GetComponent<NumberObject>();
+            if (numberObject != null)
+            {
+                ApplyCalculation(numberObject.GetValue());
+                Debug.Log($"プレイヤーが数値 {numberObject.GetValue()} を取得しました（親オブジェクト）");
+
+                // オブジェクトを削除または非表示にする
+                numberObject.gameObject.SetActive(false);
+            }
+        }
+        else if (parentObject.CompareTag("Oparator"))
+        {
+            Oparator oparator = parentObject.GetComponent<Oparator>();
+            if (oparator != null)
+            {
+                SetOperator(oparator.GetOperatorType());
+                Debug.Log($"プレイヤーが演算子 {oparator.GetOperatorSymbol()} を取得しました（親オブジェクト）");
+            }
+        }
+    }
 }
