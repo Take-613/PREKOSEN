@@ -339,10 +339,19 @@ public class PlayerCalculator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Goal") || collision.CompareTag("Drop") || collision.CompareTag("FireWall"))
+        if(collision.CompareTag("Goal"))
         {
             Debug.Log("ゴールに到達しました！現在の値: " + currentValue);
             GameDataManager.Instance.SetPlayerScore((int)currentValue); // スコアを設定
+            GameDataManager.Instance.SetGoalFlag(true);
+            SceneManager.LoadScene("ResultScene"); // 結果シーンに遷移
+            return;
+        }
+        else if (collision.CompareTag("Drop") || collision.CompareTag("FireWall"))
+        {
+            Debug.Log("ゴールに到達しました！現在の値: " + currentValue);
+            GameDataManager.Instance.SetPlayerScore((int)currentValue); // スコアを設定
+            GameDataManager.Instance.SetGoalFlag(false);
             SceneManager.LoadScene("ResultScene"); // 結果シーンに遷移
             return;
         }

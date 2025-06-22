@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kitera/TransitionScene.unity
     guid: fe7123aa21961ab4d9b85a2cd873a500
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kitera/TestStageScene.unity
     guid: e88d0fc022ec90146b0932a0a91100ec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kitera/Stage1.unity
     guid: fdde32b5b2223de4dab7533fe7b16e83
   - enabled: 1
