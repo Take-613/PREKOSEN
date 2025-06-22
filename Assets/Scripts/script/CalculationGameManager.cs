@@ -150,7 +150,7 @@ public class CalculationGameManager : MonoBehaviour
             NumberObject numberComponent = obj.GetComponent<NumberObject>();
             if (numberComponent != null)
             {
-                numberComponent.SetValue(value);
+                numberComponent.SetValue((int)value);
             }
             
             spawnedObjects.Add(obj);

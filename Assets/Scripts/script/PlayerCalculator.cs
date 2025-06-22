@@ -30,6 +30,8 @@ public class PlayerCalculator : MonoBehaviour
     [Header("デバッグ")]
     [SerializeField] private bool showDebugInfo = true;
     
+    public PlayerController playerController;
+    
     void Start()
     {
         InitializePlayerAppearance();
@@ -79,7 +81,7 @@ public class PlayerCalculator : MonoBehaviour
         playerValueDisplay = numberDisplayObj.AddComponent<TextMeshPro>();
         
         // TextMeshProの設定
-        playerValueDisplay.text = currentValue.ToString("F1");
+        playerValueDisplay.text = ((int)currentValue).ToString();
         playerValueDisplay.fontSize = 10;
         playerValueDisplay.color = Color.white;
         playerValueDisplay.alignment = TextAlignmentOptions.Center;
@@ -154,6 +156,7 @@ public class PlayerCalculator : MonoBehaviour
         
         UpdateUI();
         UpdatePlayerAppearance(); // 見た目も更新
+        playerController.UpdateFontSize();
     }
     
     // UIを更新
@@ -184,7 +187,7 @@ public class PlayerCalculator : MonoBehaviour
     private void UpdatePlayerAppearance()
     {
         UpdatePlayerValueDisplay();
-        UpdatePlayerScale();
+        //UpdatePlayerScale();
         
         if (showDebugInfo)
         {
@@ -198,7 +201,7 @@ public class PlayerCalculator : MonoBehaviour
         if (playerValueDisplay != null)
         {
             // 数値をメインの見た目として表示
-            playerValueDisplay.text = currentValue.ToString("F1");
+            playerValueDisplay.text = ((int)currentValue).ToString();
             
             // 値に応じて色を変更
             Color targetColor;
@@ -218,8 +221,8 @@ public class PlayerCalculator : MonoBehaviour
             playerValueDisplay.color = targetColor;
             
             // 値に応じてフォントサイズも調整
-            float fontSize = Mathf.Clamp(8 + Mathf.Abs(currentValue) * 0.5f, 6, 20);
-            playerValueDisplay.fontSize = fontSize;
+            //float fontSize = Mathf.Clamp(8 + Mathf.Abs(currentValue) * 0.5f, 6, 20);
+            //playerValueDisplay.fontSize = fontSize;
         }
     }
     
@@ -318,7 +321,7 @@ public class PlayerCalculator : MonoBehaviour
 
             // TextMeshProコンポーネントを追加
             playerValueDisplay = textObject.AddComponent<TextMeshPro>();
-            playerValueDisplay.text = currentValue.ToString("F1");
+            playerValueDisplay.text = ((int)currentValue).ToString();
             playerValueDisplay.fontSize = 4;
             playerValueDisplay.color = Color.white;
             playerValueDisplay.alignment = TextAlignmentOptions.Center;
@@ -336,7 +339,7 @@ public class PlayerCalculator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Goal") || collision.CompareTag("Drop"))
+        if(collision.CompareTag("Goal") || collision.CompareTag("Drop") || collision.CompareTag("FireWall"))
         {
             Debug.Log("ゴールに到達しました！現在の値: " + currentValue);
             GameDataManager.Instance.SetPlayerScore((int)currentValue); // スコアを設定
